@@ -1,5 +1,5 @@
 # MaestroMobileAutomation
-# Maestro Mobile Automation Framework with AI Capabilities
+# Maestro Mobile Automation Framework 
 
 ## Overview
 This framework combines the power of Maestro for mobile automation testing with TypeScript and AI capabilities for intelligent test generation and maintenance.
