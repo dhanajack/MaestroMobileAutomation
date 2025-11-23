@@ -1,0 +1,20 @@
+# Basic Google Maps Launch Test
+appId: com.google.android.apps.maps
+name: Basic Google Maps Launch
+tags:
+  - smoke
+  - launch
+onFlowStart:
+  - setLocation: # Melbourne CBD
+      latitude: -37.8136
+      longitude: 144.9631
+---
+- launchApp:
+    clearState: true
+
+# Wait for app to load
+- waitForAnimationToEnd:
+    timeout: 10000
+
+# Take a screenshot to verify launch
+- takeScreenshot: "maps-launched"

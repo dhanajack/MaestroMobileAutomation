@@ -1,0 +1,83 @@
+# IDEA (Intellij)
+.idea/
+
+# Maestro Test Artifacts
+# Don't push screenshots, logs, and test results
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+
+# Maestro test output directories
+.maestro/
+maestro-tests/
+
+# Test results and reports
+test-results/
+reports/
+*.html
+*.json
+*.log
+*.xml
+
+# Screenshots specifically
+screenshot-*.png
+*-screenshot.png
+screenshots/
+*-result.png
+*-suggestions.png
+*-launched.png
+*-initial.png
+*-final.png
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# IDE specific
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node modules (if any)
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Android specific
+*.apk
+*.aab
+local.properties
+
+# Backup files
+*.bak
+*.backup

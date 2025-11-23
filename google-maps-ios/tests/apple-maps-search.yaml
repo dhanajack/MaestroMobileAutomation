@@ -1,0 +1,48 @@
+# Apple Maps Search Test - iOS
+appId: com.apple.Maps
+name: Apple Maps Search - Docklands (iOS)
+tags:
+  - search
+  - functional
+  - ios
+  - apple-maps
+onFlowStart:
+  - setLocation: # Melbourne CBD
+      latitude: -37.8136
+      longitude: 144.9631
+---
+- launchApp:
+    appId: com.apple.Maps
+    clearState: true
+    permissions:
+      location: allow
+
+# Wait for app to fully load
+- waitForAnimationToEnd:
+    timeout: 10000
+
+# Tap on search bar (Apple Maps search is at the top)
+- tapOn:
+    point: "50%,8%"
+
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# Type the search term
+- inputText: "Docklands Melbourne"
+
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# Take screenshot of search results
+- takeScreenshot: "ios-apple-maps-search-suggestions"
+
+# Submit search - try tapping first result or pressing return
+- pressKey: Enter
+
+# Wait for map to load the location
+- waitForAnimationToEnd:
+    timeout: 10000
+
+# Take final screenshot
+- takeScreenshot: "ios-apple-maps-docklands-result"

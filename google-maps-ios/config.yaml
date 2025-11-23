@@ -1,0 +1,5 @@
+# iOS Config for Google Maps Tests
+appId: com.google.Maps
+---
+flows:
+  - "tests/*"

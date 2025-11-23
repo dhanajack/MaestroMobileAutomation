@@ -1,0 +1,43 @@
+# Google Maps Search Test using coordinates
+appId: com.google.android.apps.maps
+name: Google Maps Search - Docklands
+tags:
+  - search
+  - functional
+onFlowStart:
+  - setLocation: # Melbourne CBD
+      latitude: -37.8136
+      longitude: 144.9631
+---
+- launchApp:
+    clearState: true
+
+# Wait for app to fully load
+- waitForAnimationToEnd:
+    timeout: 10000
+
+# Tap at the top of screen where search bar is located
+- tapOn:
+    point: "50%,10%"
+
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# Type the search term
+- inputText: "Docklands Melbourne"
+
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# Take screenshot of search results
+- takeScreenshot: "search-suggestions"
+
+# Submit search
+- pressKey: Enter
+
+# Wait for map to load the location
+- waitForAnimationToEnd:
+    timeout: 10000
+
+# Take final screenshot
+- takeScreenshot: "docklands-result"

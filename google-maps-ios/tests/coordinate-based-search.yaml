@@ -1,0 +1,53 @@
+# Google Maps Search Test - iOS
+appId: com.google.Maps
+name: Google Maps Search - Docklands (iOS)
+tags:
+  - search
+  - functional
+  - ios
+onFlowStart:
+  - setLocation: # Melbourne CBD
+      latitude: -37.8136
+      longitude: 144.9631
+---
+- launchApp:
+    appId: com.google.Maps
+    clearState: true
+    permissions:
+      location: allow
+
+# Wait for app to fully load
+- waitForAnimationToEnd:
+    timeout: 10000
+
+# Tap at the top of screen where search bar is located
+# iOS search bar is typically at the top
+- tapOn:
+    point: "50%,8%"
+
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# Type the search term
+- inputText: "Docklands Melbourne"
+
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# Take screenshot of search results
+- takeScreenshot: "ios-search-suggestions"
+
+# Submit search (iOS uses "Search" button or Return key)
+- tapOn:
+    text: "Search"
+    optional: true
+
+# Alternative: Press return if Search button not found
+- pressKey: Enter
+
+# Wait for map to load the location
+- waitForAnimationToEnd:
+    timeout: 10000
+
+# Take final screenshot
+- takeScreenshot: "ios-docklands-result"
