@@ -18,8 +18,7 @@ onFlowStart:
     timeout: 10000
 
 # Tap at the top of screen where search bar is located
-- tapOn:
-    point: "50%,10%"
+- tapOn: "Search here"
 
 - waitForAnimationToEnd:
     timeout: 3000
