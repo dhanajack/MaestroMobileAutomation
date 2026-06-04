@@ -4,6 +4,7 @@ name: Google Maps Search - Docklands
 tags:
   - search
   - functional
+  - launch
 onFlowStart:
   - setLocation: # Melbourne CBD
       latitude: -37.8136

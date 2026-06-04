@@ -45,14 +45,14 @@ xcrun simctl boot "iPhone 15 Pro"
 
 ```bash
 # Run all iOS tests
-maestro test google-maps-ios/
+maestro test google-maps-android-ios/
 
 # Run specific test
-maestro test google-maps-ios/tests/basic-launch.yaml
-maestro test google-maps-ios/tests/coordinate-based-search.yaml
+maestro test google-maps-android-ios/tests/basic-launch.yaml
+maestro test google-maps-android-ios/tests/coordinate-based-search.yaml
 
 # Run on specific device
-maestro --device "iPhone 15 Pro" test google-maps-ios/tests/basic-launch.yaml
+maestro --device "iPhone 15 Pro" test google-maps-android-ios/tests/basic-launch.yaml
 ```
 
 ## 📋 Test Cases

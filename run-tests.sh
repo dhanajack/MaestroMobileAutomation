@@ -13,11 +13,11 @@ TEST_NAME=${1:-"all"}
 if [ "$PLATFORM" = "ios" ]; then
     APP_ID=${3:-"com.google.Maps"}
     DEVICE_NAME=${4:-"iPhone 15 Pro"}
-    TEST_DIR="google-maps-ios/tests"
+    TEST_DIR="google-maps-android-ios/tests"
 else
     APP_ID=${3:-"com.google.android.apps.maps"}
     DEVICE_NAME=${4:-"emulator-5554"}
-    TEST_DIR="google-maps/tests"
+    TEST_DIR="src/google-maps-android-android/tests"
 fi
 
 # Colors for output

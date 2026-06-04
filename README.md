@@ -67,31 +67,71 @@ maestro-mobile-ai/
    ```bash
    Node.js (v16 or higher)
    TypeScript
-   Maestro CLI
    Android SDK
-   Xcode (for iOS)
+   Java JDK 17 or higher
+   unzip
    ```
 
 2. **Installation**
    ```bash
    npm install
-   npm install -g maestro-cli
    ```
+
+   ### Maestro CLI on Windows
+   1. Install Java JDK 17 or higher.
+   2. Install `unzip` if you do not already have it.
+   3. Download the latest Maestro CLI zip from:
+      - `https://github.com/mobile-dev-inc/maestro/releases/latest/download/maestro.zip`
+   4. Extract the zip to your Windows user folder:
+      - `%USERPROFILE%\.maestro`
+   5. Add the Maestro binary folder to your PATH:
+      - `%USERPROFILE%\.maestro\bin`
+   6. Open a new terminal and verify:
+      ```powershell
+      maestro --version
+      ```
+
+   If you have Git Bash or WSL on Windows, you can also install using the official installer script:
+   ```bash
+   curl -Ls "https://get.maestro.mobile.dev" | bash
+   ```
+
+   ### Android Studio and Emulator Setup on Windows
+   1. Install Android Studio and open Device Manager.
+   2. Create or start an emulator with Google Play support.
+   3. Install Google Maps on the emulator.
+   4. Verify ADB works:
+      ```powershell
+      adb version
+      adb devices
+      ```
+   5. Confirm Maestro is available:
+      ```powershell
+      maestro --version
+      ```
+   6. Run tests with:
+      ```powershell
+      npm run test:android
+      npm run test:android:basic
+      ```
+
+   > Note: `setup-android-studio.ps1` and `tsconfig.json` were removed. Windows test setup is now documented here in README.
 
 3. **Configuration**
    - Set up environment variables
-   - Configure devices in deviceConfig.ts
+   - Configure devices in `deviceConfig.ts`
    - Set up AI model parameters
 
 4. **Running Tests**
    ```bash
-   # Run all tests
-   npm test
+   # Run app tests using the Android test runner
+   npm run test:android
 
-   # Run specific suite
-   npm run test:e2e
-   npm run test:smoke
+   # Run a single Android test
+   npm run test:android:basic
    ```
+
+   > Note: `npm test` runs Jest in this project and is not the Android Maestro test runner.
 
 ## AI Integration
 

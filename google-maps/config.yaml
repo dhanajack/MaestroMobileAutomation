@@ -1,3 +1,0 @@
-# config.yaml for Google Maps tests
-flows:
-  - "tests/*"
