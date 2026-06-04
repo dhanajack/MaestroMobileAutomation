@@ -41,5 +41,16 @@ onFlowStart:
 - waitForAnimationToEnd:
     timeout: 10000
 
+- assertVisible: "Docklands"
+
+- tapOn: "Photo"
+
+- tapOn:
+    id: "com.google.android.apps.maps:id/zen_app_bar_immersive_nav_button"
+
+- scrolluntilVisible:
+    element: "See more"
+    direction: "down"
+
 # Take final screenshot
 - takeScreenshot: "docklands-result"
