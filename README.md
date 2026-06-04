@@ -77,45 +77,86 @@ maestro-mobile-ai/
    npm install
    ```
 
-   ### Maestro CLI on Windows
-   1. Install Java JDK 17 or higher.
-   2. Install `unzip` if you do not already have it.
-   3. Download the latest Maestro CLI zip from:
-      - `https://github.com/mobile-dev-inc/maestro/releases/latest/download/maestro.zip`
-   4. Extract the zip to your Windows user folder:
-      - `%USERPROFILE%\.maestro`
-   5. Add the Maestro binary folder to your PATH:
-      - `%USERPROFILE%\.maestro\bin`
-   6. Open a new terminal and verify:
-      ```powershell
-      maestro --version
-      ```
+   ### Maestro Studio on Windows - Complete Installation Guide
 
-   If you have Git Bash or WSL on Windows, you can also install using the official installer script:
-   ```bash
-   curl -Ls "https://get.maestro.mobile.dev" | bash
+   #### Step 1: Install Prerequisites
+   - Java JDK 17 or higher
+   - Node.js (v16 or higher)
+   - Android SDK
+   - Git Bash or WSL2 (optional but recommended)
+
+   #### Step 2: Install Android Studio
+   1. Download and install [Android Studio](https://developer.android.com/studio)
+   2. Open Android Studio and complete initial setup
+   3. Go to **View → Tool Windows → Device Manager**
+   4. Create a new virtual device or use an existing emulator with Google Play support
+
+   #### Step 3: Configure Java Environment
+   Open PowerShell as Admin and set up Java:
+   ```powershell
+   $javaHome = "C:\Program Files\Java\jdk-17" # Adjust path based on your JDK installation
+   [Environment]::SetEnvironmentVariable("JAVA_HOME", $javaHome, "User")
    ```
 
-   ### Android Studio and Emulator Setup on Windows
-   1. Install Android Studio and open Device Manager.
-   2. Create or start an emulator with Google Play support.
-   3. Install Google Maps on the emulator.
-   4. Verify ADB works:
-      ```powershell
-      adb version
-      adb devices
+   #### Step 4: Add Android to PATH
+   Open PowerShell as Admin and run:
+   ```powershell
+   $androidSdk = "$env:USERPROFILE\AppData\Local\Android\Sdk"
+   $currentPath = [Environment]::GetEnvironmentVariable("Path", "User")
+   $newPath = "$currentPath;$androidSdk\platform-tools;$androidSdk\tools"
+   [Environment]::SetEnvironmentVariable("Path", $newPath, "User")
+   ```
+
+   #### Step 5: Test ADB
+   Open a new PowerShell terminal and verify ADB is accessible:
+   ```powershell
+   adb version
+   adb devices
+   ```
+
+   #### Step 6: Install Maestro
+   **Option A - Using Android Studio Terminal (Recommended):**
+   1. Open **View → Tool Windows → Terminal** in Android Studio
+   2. Run the official installer script:
+      ```bash
+      curl -Ls "https://get.maestro.mobile.dev" | bash
       ```
-   5. Confirm Maestro is available:
+
+   **Option B - Manual Installation:**
+   1. Download the latest Maestro CLI zip from:
+      - `https://github.com/mobile-dev-inc/maestro/releases/latest/download/maestro.zip`
+   2. Extract to your Windows user folder:
+      - `%USERPROFILE%\.maestro`
+   3. Add the Maestro binary folder to your PATH:
+      - `%USERPROFILE%\.maestro\bin`
+   4. Verify installation:
       ```powershell
       maestro --version
       ```
-   6. Run tests with:
-      ```powershell
-      npm run test:android
-      npm run test:android:basic
+
+   **Option C - Using WSL2:**
+   1. Enable WSL2 in Android Studio
+   2. Install Maestro in Ubuntu terminal:
+      ```bash
+      curl -Ls "https://get.maestro.mobile.dev" | bash
       ```
 
-   > Note: `setup-android-studio.ps1` and `tsconfig.json` were removed. Windows test setup is now documented here in README.
+   #### Step 7: Configure Google Maps
+   1. Start an emulator in Device Manager
+   2. Install Google Maps from Play Store on the emulator
+   3. Verify emulator is accessible via ADB:
+      ```powershell
+      adb devices
+      ```
+
+   #### Step 8: Run Tests
+   Once setup is complete, run Maestro tests:
+   ```powershell
+   npm run test:android
+   npm run test:android:basic
+   ```
+
+   > Note: `npm test` runs Jest in this project and is not the Android Maestro test runner.
 
 3. **Configuration**
    - Set up environment variables
