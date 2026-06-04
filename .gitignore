@@ -9,15 +9,11 @@
 *.gif
 *.webp
 
-# Maestro test output directories
-.maestro/
-maestro-tests/
 
 # Test results and reports
 test-results/
 reports/
 *.html
-*.json
 *.log
 *.xml
 

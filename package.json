@@ -1,0 +1,50 @@
+{
+  "name": "maestro-mobile-ai",
+  "version": "1.0.0",
+  "description": "Maestro Mobile Automation Framework with TypeScript and AI capabilities",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "studio": "powershell -NoProfile -Command \"& 'C:\\Users\\dkamaraj\\.maestro\\bin\\maestro.bat' studio\"",
+    "test:android": "powershell -NoProfile -ExecutionPolicy Bypass -File ./run-tests.ps1 all android",
+    "test:android:basic": "powershell -NoProfile -ExecutionPolicy Bypass -File ./run-tests.ps1 basic-launch android",
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "keywords": [
+    "maestro",
+    "mobile",
+    "automation",
+    "testing",
+    "typescript",
+    "ai"
+  ],
+  "author": "QETS Practice - Capgemini",
+  "license": "Copyright © 2025 Capgemini. All rights reserved.",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.0",
+    "uuid": "^9.0.0",
+    "winston": "^3.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.40.0",
+    "jest": "^29.5.0",
+    "jest-html-reporter": "^3.7.0",
+    "maestro-cli": "^1.1.10",
+    "prettier": "^2.8.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
